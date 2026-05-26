@@ -36,6 +36,6 @@ jobs:
         key: ${{ secrets.EC2_SSH_KEY }}
 
         script: |
-          sudo kubectl set image deployment/backend backend=${{ secrets.DOCKER_USERNAME }}/flask-redis-app:${{ github.sha }} -n devops-task
+          kubectl set image deployment/backend backend=${{ secrets.DOCKER_USERNAME }}/flask-redis-app:${{ github.sha }} -n devops-task
 
-          sudo kubectl rollout status deployment/backend -n devops-task
+          kubectl rollout status deployment/backend -n devops-task
